@@ -1,3 +1,9 @@
+make these changes in these files before runnng
+add this command from pathlib import Path in the datasets/combine_A_and_B.py file
+
+modify the line number 102 in /models/base_model.py to ---- > state_dict = torch.load(load_path, map_location=str(self.device))
+
+
 First created the aligned dataset by running the Python script file 
 
 
@@ -16,7 +22,7 @@ python train.py \
   --netG resnet_9blocks \
   --preprocess none \
   --batch_size 4 \
-  --num_threads 4 \
+  --num_threads 1 \
   --n_epochs 200 \
   --n_epochs_decay 200 \
   --lr 0.0002 \
