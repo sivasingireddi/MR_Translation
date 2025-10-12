@@ -1,0 +1,40 @@
+First created the aligned dataset by running the Python script file 
+
+
+
+
+Training
+
+python train.py \
+  --dataroot /srv/Data16tb/siva/ssiva/MR_Translation/modified_dataset \
+  --name mr_1p5T_to_3T_pix2pix \
+  --model pix2pix \
+  --dataset_mode aligned \
+  --direction AtoB \
+  --input_nc 3 \
+  --output_nc 3 \
+  --netG resnet_9blocks \
+  --preprocess none \
+  --batch_size 4 \
+  --num_threads 4 \
+  --n_epochs 200 \
+  --n_epochs_decay 200 \
+  --lr 0.0002 \
+  --beta1 0.5 \
+  --lambda_L1 200 \
+  --display_freq 400 \
+  --print_freq 100 \
+  --save_epoch_freq 10
+
+
+python test.py \
+  --dataroot /srv/Data16tb/siva/ssiva/MR_Translation/modified_dataset/aligned_dataset \
+  --name mr_1p5T_to_3T_pix2pix \
+  --model pix2pix \
+  --dataset_mode aligned \
+  --direction AtoB \
+  --input_nc 3 \
+  --output_nc 3 \
+  --netG resnet_9blocks \
+  --preprocess none
+
